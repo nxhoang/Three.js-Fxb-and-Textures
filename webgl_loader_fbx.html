@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>three.js webgl - FBX loader - Nurbs</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <style>
+	<head>
+		<title>three.js webgl - FBX loader - Nurbs</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
 			body {
 				font-family: Monospace;
 				background-color: #000;
@@ -25,123 +25,104 @@
 				color: #f00;
 				font-weight: bold;
 			}
-				</style>
-</head>
+		</style>
+	</head>
 
-<body>
-    <div id="info">
-        <a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - FBXLoader - Nurbs
-    </div>
+	<body>
+		<div id="info">
+		<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - FBXLoader - Nurbs
+		</div>
 
-    <script src="../build/three.js" />
+		<script src="js/threejs/three.js"></script>
 
-    <script src="js/controls/OrbitControls.js" />
+		<script src="js/controls/OrbitControls.js"></script>
 
-    <script src="js/curves/NURBSCurve.js" />
-    <script src="js/curves/NURBSUtils.js" />
-    <script src="js/loaders/FBXLoader.js" />
+		<script src="js/curves/NURBSCurve.js"></script>
+		<script src="js/curves/NURBSUtils.js"></script>
+		<script src="js/loaders/FBXLoader.js"></script>
 
-    <script src="js/Detector.js" />
-    <script src="js/libs/stats.min.js" />
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/stats.min.js"></script>
 
-    <script>
+		<script>
 
-        if (!Detector.webgl) Detector.addGetWebGLMessage();
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-        var container, stats, controls;
-        var camera, scene, renderer, light;
+			var container, stats, controls;
+			var camera, scene, renderer, light;
 
-        init();
-        animate();
+			init();
+			animate();
 
-        function init() {
+			function init() {
 
-            container = document.createElement('div');
-            document.body.appendChild(container);
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
 
-            camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.01, 2000);
-            camera.position.set(0, 0, 1);
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.set( 2, 18, 28 );
 
-            controls = new THREE.OrbitControls(camera);
-            controls.target.set(0, 0, 0);
-            controls.update();
+				controls = new THREE.OrbitControls( camera );
+				controls.target.set( 0, 12, 0 );
+				controls.update();
 
-            scene = new THREE.Scene();
+				scene = new THREE.Scene();
 
-            light = new THREE.HemisphereLight(0xffffff, 0x444444);
-            light.position.set(0, 0, 0.1);
-            scene.add(light);
+				light = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+				light.position.set( 0, 1, 0 );
+				scene.add( light );
 
-            light = new THREE.DirectionalLight(0xffffff);
-            light.position.set(0, 0, 0);
-            scene.add(light);
+				light = new THREE.DirectionalLight( 0xffffff );
+				light.position.set( 0, 1, 0 );
+				scene.add( light );
 
-            // grid
-            var gridHelper = new THREE.GridHelper(28, 28, 0x303030, 0x303030);
-            scene.add(gridHelper);
+				// grid
+				var gridHelper = new THREE.GridHelper( 28, 28, 0x303030, 0x303030 );
+				scene.add( gridHelper );
 
-            // stats
-            stats = new Stats();
-            container.appendChild(stats.dom);
+				// stats
+				stats = new Stats();
+				container.appendChild( stats.dom );
 
-            // model
-            var fbxLoader = new THREE.FBXLoader();
-            var loadFBX = function (modelPath, texturePath) {
+				// model
+				var loader = new THREE.FBXLoader();
+				loader.load( 'models/fbx/nurbs.fbx', function( object ) {
 
-                var con = new THREE.Object3D();
+					scene.add( object );
 
-                fbxLoader.load(modelPath, function (object) {
+				} );
 
-                    con.add(object);
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
 
-                    object.traverse(function (child) {
+				window.addEventListener( 'resize', onWindowResize, false );
 
-                        if (child instanceof THREE.Mesh) {
-                            //here's how we add the texture, you may need to
-                            //UV Unwrap your model first in 3Ds
-                            child.material = new THREE.MeshLambertMaterial();
-                            child.material.map = textureLoader.load(texturePath);
-                        }
-                    });
+			}
 
-                }, (p) => {
-                    alert(p);
-                }, (e) => {
-                    alert(e);
-                });
+			function onWindowResize() {
 
-                return con;
-            }
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
 
-            var model = loadFBX('models/fbx/model.fbx', 'models/fbx/Textures/Adidas per.png');
-            scene.add(model);
+				renderer.setSize( window.innerWidth, window.innerHeight );
 
-            renderer = new THREE.WebGLRenderer();
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            container.appendChild(renderer.domElement);
+			}
 
-            window.addEventListener('resize', onWindowResize, false);
+			//
 
-        }
+			function animate() {
 
-        function onWindowResize() {
+				requestAnimationFrame( animate );
 
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
+				renderer.render( scene, camera );
 
-            renderer.setSize(window.innerWidth, window.innerHeight);
+				stats.update();
 
-        }
+			}
 
-        //
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-            stats.update();
+		</script>
 
-        }
-
-    </script>
-</body>
+	</body>
 </html>
