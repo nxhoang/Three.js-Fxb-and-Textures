@@ -1,0 +1,242 @@
+<XML>
+<Obj N="FBX Export">
+<Atr N="Export Time" T="S" V="Tue May 12 08:30:00 2015
+"/>
+<Atr N="Model" T="S" V="S1615BA1019U"/>
+<Atr N="Article" T="S" V="AK0018"/>
+<Atr N="Avatar" T="S" V=""/>
+<Atr N="AvatarPose" T="S" V=""/>
+<Atr N="ProductVersion" T="S" V="12"/>
+<Atr N="FBX Exporter version" T="S" V="3.167.0"/>
+<Obj N="Garment Info">
+<Obj N="Outside_Piece" IX="0">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Outside 2_Piece2" IX="1">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_Piece3" IX="2">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_@Piece4" IX="3">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_@Piece2" IX="4">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Outside_@Piece3" IX="5">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_Piece4" IX="6">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_Piece9" IX="7">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_Piece6" IX="8">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_@Piece5" IX="9">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_@Piece6" IX="10">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_@Piece7" IX="11">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_Piece8" IX="12">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_@S1615BA17" IX="13">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Outside_@Piece" IX="14">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_Piece5" IX="15">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="_Piece13" IX="16">
+<Atr N="RGB" T="S" V="108,110,112"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Inside_Piece14" IX="17">
+<Atr N="RGB" T="S" V="108,110,112"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Zipper_Piece10" IX="18">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_S1615BA16NC" IX="19">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_S1615BA17" IX="20">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Outside_Piece_BoundaryShape" IX="21">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Outside 2_Piece2_BoundaryShape" IX="22">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_Piece3_BoundaryShape" IX="23">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_@Piece4_BoundaryShape" IX="24">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_@Piece2_BoundaryShape" IX="25">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Outside_@Piece3_BoundaryShape" IX="26">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_Piece4_BoundaryShape" IX="27">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_Piece9_BoundaryShape" IX="28">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_Piece6_BoundaryShape" IX="29">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_@Piece5_BoundaryShape" IX="30">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Transparency_@Piece6_BoundaryShape" IX="31">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_@Piece7_BoundaryShape" IX="32">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Main fabric_Piece8_BoundaryShape" IX="33">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_@S1615BA17_BoundaryShape" IX="34">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Outside_@Piece_BoundaryShape" IX="35">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_Piece5_BoundaryShape" IX="36">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="_Piece13_BoundaryShape" IX="37">
+<Atr N="RGB" T="S" V="108,110,112"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Inside_Piece14_BoundaryShape" IX="38">
+<Atr N="RGB" T="S" V="108,110,112"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Zipper_Piece10_BoundaryShape" IX="39">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_S1615BA16NC_BoundaryShape" IX="40">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Loop_S1615BA17_BoundaryShape" IX="41">
+<Atr N="RGB" T="S" V="25,25,25"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="BUTTON FIXED_" IX="42">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="BUTTON FIXED_" IX="43">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Snap button_" IX="44">
+<Atr N="RGB" T="S" V="22,22,22"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="BUTTON FIXED_" IX="45">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="BUTTON FIXED_" IX="46">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="BUTTON FIXED_" IX="47">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Snap button_" IX="48">
+<Atr N="RGB" T="S" V="22,22,22"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="ELET_" IX="49">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Snap button_" IX="50">
+<Atr N="RGB" T="S" V="22,22,22"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="BUTTON FIXED_" IX="51">
+<Atr N="RGB" T="S" V="255,255,255"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="3st.png_Piece_LogoShape" IX="52">
+<Atr N="RGB" T="S" V="15,15,15"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="3st.png_Piece2_LogoShape" IX="53">
+<Atr N="RGB" T="S" V="15,15,15"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="3st.png_@Piece3_LogoShape" IX="54">
+<Atr N="RGB" T="S" V="15,15,15"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="3st.png_@Piece_LogoShape" IX="55">
+<Atr N="RGB" T="S" V="15,15,15"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+<Obj N="Adidas per.png_Piece14_LogoShape" IX="56">
+<Atr N="RGB" T="S" V="20,20,20"/>
+<Atr N="ColorName" T="S" V=""/>
+</Obj>
+</Obj>
+</Obj>
+</XML>
