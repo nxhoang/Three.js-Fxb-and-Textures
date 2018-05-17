@@ -9,9 +9,12 @@
         body {
             font-family: Monospace;
             background-color: #000;
-            color: #fff;
             margin: 0px;
             overflow: hidden;
+        }
+
+        .main-viewer {
+            z-index: 1;
         }
 
         .btn-explode {
@@ -20,21 +23,71 @@
             left: 45%;
         }
 
-    </style>
-</head>
+        .model-div {
+            position: absolute;
+            width: 250px;
+            height: 500px;
+            background-color: rgba(255, 255, 255, .94);
+            display: none;
+            z-index: 2;
+            border-radius: 2px;
+        }
 
-<body>
-    <script src="js/jquery/jquery-3.3.1.min.js"></script>
+        .model-table {
+            width: 100%;
+        }
+
+        .model-body {
+            overflow: auto;
+            max-height: 465px;
+        }
+
+        .btn-close-modal {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .header-viewer {
+            font-size: 18px;
+        }
+
+        .header-text {
+            margin-left: 15px;
+        }
+
+    </style>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery/jquery-ui-custom.min.js"></script>
     <script src="js/threejs/three.min.js"></script>
     <script src="js/libs/stats.min.js"></script>
     <script src="js/loaders/OBJLoader.js"></script>
     <script src="js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+    <div id="model-div" class="model-div">
+        <div class="header-viewer">
+            <span class="header-text">Model</span>
+            <button class="btn-close-modal" onclick="ToggleModelModal()">&#10006</button>
+        </div>
+        <div class="model-body">
+            <table id="model-table" class="table table-hover">
+                <thead></thead>
+                <tbody id="model-tbody"> </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="main-viewer" class="main-viewer"></div>
 
     <div class="btn-explode">
-        <button onclick="ExplodeProduct()">Explode</button>
-        <button onclick="ImplodeProduct()">Implode</button>
+        <button type="button" class="btn btn-default" onclick="ExplodeProduct()">Explode</button>
+        <button type="button" class="btn btn-default" onclick="ImplodeProduct()">Implode</button>
+        <button type="button" class="btn btn-default" onclick="ToggleModelModal()">Model browser</button>
     </div>
-<div class="model-table"></div>
 
     <script>
         var container, camera, scene, renderer, controls, raycaster, parts,
@@ -45,9 +98,7 @@
         animate();
 
         function init() {
-
-            container = document.createElement('div');
-            document.body.appendChild(container);
+            container = document.getElementById('main-viewer');
 
             // Camera
             camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 2000);
@@ -59,20 +110,6 @@
 
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0x000000);
-            //            scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
-
-            //            light = new THREE.HemisphereLight(0xffffff, 0x444444);
-            //            light.position.set(0, 100, 0);
-            //            scene.add(light);
-            //
-            //            light = new THREE.DirectionalLight(0xbfbfbf);
-            //            light.position.set(0, 50, 0);
-            //            light.castShadow = true;
-            //            light.shadow.camera.top = 180;
-            //            light.shadow.camera.bottom = -100;
-            //            light.shadow.camera.left = -120;
-            //            light.shadow.camera.right = 120;
-            //            scene.add(light);
 
             var ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
             scene.add(ambientLight);
@@ -89,11 +126,6 @@
             mesh.rotation.x = -Math.PI / 2;
             mesh.receiveShadow = true;
             scene.add(mesh);
-
-            //            var grid = new THREE.GridHelper(2000, 20, 0x000000, 0x000000);
-            //            grid.material.opacity = 0.2;
-            //            grid.material.transparent = true;
-            //            scene.add(grid);
 
             // Model
             var onProgress = function(xhr) {
@@ -117,6 +149,9 @@
                 scene.add(object);
 
                 parts = object.children;
+
+                BindModelToTable(parts);
+
             }, onProgress, onError);
 
             raycaster = new THREE.Raycaster();
@@ -132,8 +167,19 @@
             renderer.sortObjects = false;
             container.appendChild(renderer.domElement);
 
-            document.addEventListener('mousemove', onDocumentMouseMove, false);
-            window.addEventListener('resize', onWindowResize, false);
+            const canvas = document.getElementById("main-viewer").getElementsByTagName("canvas")[0];
+
+            canvas.addEventListener('mousemove', onDocumentMouseMove, false);
+            canvas.addEventListener('resize', onWindowResize, false);
+            canvas.addEventListener("dblclick", onDoubleClick, false);
+        }
+
+        function onDoubleClick(e) {
+            e.preventDefault();
+            raycaster.setFromCamera(mouse, camera);
+            intersects = raycaster.intersectObjects(scene.children, true);
+            var clickedItem = intersects[0].object.name;
+            alert('You clicked: ' + clickedItem);
         }
 
         function onWindowResize() {
@@ -157,18 +203,7 @@
         }
 
         function render() {
-
-            //            theta += 0.1;
-            //
-            //            camera.position.x = radius * Math.sin(THREE.Math.degToRad(theta));
-            //            camera.position.y = radius * Math.sin(THREE.Math.degToRad(theta));
-            //            camera.position.z = radius * Math.cos(THREE.Math.degToRad(theta));
-            //            camera.lookAt(scene.position);
-            //
-            //            camera.updateMatrixWorld();
-
             // find intersections
-            //if (skull){
             raycaster.setFromCamera(mouse, camera);
 
             var intersects = raycaster.intersectObjects(scene.children, true);
@@ -192,7 +227,6 @@
 
                 INTERSECTED = null;
             }
-            //}
             renderer.render(scene, camera);
         }
 
@@ -250,8 +284,25 @@
             });
         }
 
-    </script>
+        function BindModelToTable(models) {
+            models.forEach(function(i, v) {
+                $("#model-table tbody").append('<tr><td onclick="SelectModel()">' + i.name + '</td></tr>')
+            });
+        }
 
+        $("#model-div").draggable();
+
+        function ToggleModelModal() {
+            $("#model-div").toggle();
+        }
+
+        function SelectModel() {
+            const modelName = this.event.currentTarget.outerText;
+            //            const modelNode = object.getObjectByName(modelName);
+            alert(modelName);
+        }
+
+    </script>
 </body>
 
 </html>
